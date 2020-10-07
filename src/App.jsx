@@ -1,11 +1,26 @@
 import React from 'react';
 import Header from './components/Header'
+import styled from '@emotion/styled';
+
+const Contenedor = styled.div`
+	max-width: 640px;
+	margin: 0 auto;
+`;
+
+const ContenedorFormulario = styled.div`
+	background: #fff;
+	padding: 3rem;
+`;
 
 function App() {
   return (
-		<div>
-			<Header titulo="Cotizador de seguros" />
-		</div>
+		<Contenedor>
+			<Header titulo='Cotizador de seguros' />
+
+			<ContenedorFormulario>
+
+			</ContenedorFormulario>
+		</Contenedor>
 	);
 }
 
