@@ -28,13 +28,13 @@ const Button = styled.button`
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	background-color: #e96443;
+	background-color: #22b5c9;
 	color: white;
 	transition: background-color 0.3s ease;
 
 	:hover {
 		cursor: pointer;
-		background-color: #e96465;
+		background-color: #1fa5b7;
 	}
 `;
 
@@ -74,6 +74,15 @@ const Formulario = () => {
 		}
 
 		setErrorFormulario(false);
+
+		// TODO Obtener diferencia de años
+		// TODO Por cada año restar el 3%
+
+		// TODO Marca: aumenta la cotizacion (Amer - 15% |Asi - 5% | Eur - 30%)
+
+		// TODO Plan (Basico - 	20% | COmpleto - 50%)
+
+		// TODO TOTAL (helper)
 	};
 
 	return (
