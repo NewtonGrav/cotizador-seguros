@@ -2,10 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled'
 
 const ContenedorHeader = styled.header`
-	background: #fff;
 	padding: 10px;
 	font-weight: bold;
-	color: #e96443;
+	background: #22b5c9;
+	color: #fff;
 `;
 
 const TituloH1 = styled.h1`
