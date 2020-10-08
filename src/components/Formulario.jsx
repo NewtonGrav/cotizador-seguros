@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 const Campo = styled.div`
@@ -30,7 +30,7 @@ const Button = styled.button`
 	border: none;
 	background-color: #e96443;
 	color: white;
-	transition: background-color .3s ease;
+	transition: background-color 0.3s ease;
 
 	:hover {
 		cursor: pointer;
@@ -39,11 +39,26 @@ const Button = styled.button`
 `;
 
 const Formulario = () => {
+	const [datos, setDatos] = useState({
+		marca: '',
+		anio: '',
+		plan: '',
+	});
+
+	const obtenerDatos = (e) => {
+		setDatos({
+			...datos,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	const { marca, anio, plan } = datos;
+
 	return (
 		<form>
 			<Campo>
 				<Label htmlFor='marca'>Marca</Label>
-				<Select name='marca' id='marca'>
+				<Select name='marca' value={marca} id='marca' onChange={obtenerDatos}>
 					<option value=''>-- Seleccione --</option>
 					<option value='americano'>Americano</option>
 					<option value='europeo'>Europeo</option>
@@ -53,7 +68,7 @@ const Formulario = () => {
 
 			<Campo>
 				<Label htmlFor='anio'>Año</Label>
-				<Select name='anio' id='anio'>
+				<Select name='anio' value={anio} id='anio' onChange={obtenerDatos}>
 					<option value=''>-- Seleccione --</option>
 					<option value='2021'>2021</option>
 					<option value='2020'>2020</option>
@@ -71,11 +86,25 @@ const Formulario = () => {
 			<Campo>
 				<Label htmlFor='plan'>Plan</Label>
 				<label htmlFor='plan-basico'>
-					<InputRadio id='plan-basico' type='radio' name='plan' value='basico' />
+					<InputRadio
+						id='plan-basico'
+						type='radio'
+						name='plan'
+						value='basico'
+						checked={plan === 'basico'}
+						onChange={obtenerDatos}
+					/>
 					Básico
 				</label>
 				<label htmlFor='plan-completo'>
-					<InputRadio id='plan-completo' type='radio' name='plan' value='completo' />
+					<InputRadio
+						id='plan-completo'
+						type='radio'
+						name='plan'
+						value='completo'
+						checked={plan === 'completo'}
+						onChange={obtenerDatos}
+					/>
 					Completo
 				</label>
 			</Campo>
