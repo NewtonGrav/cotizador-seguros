@@ -38,6 +38,16 @@ const Button = styled.button`
 	}
 `;
 
+const Error = styled.div`
+	width: 100%;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	text-align: center;
+	background-color: red;
+	color: white;
+	font-size: 1.25rem;
+`;
+
 const Formulario = () => {
 	const [datos, setDatos] = useState({
 		marca: '',
@@ -68,6 +78,8 @@ const Formulario = () => {
 
 	return (
 		<form onSubmit={cotizarSeguro}>
+			{errorFormulario ? <Error>Todos los campos son obligatorios</Error> : null}
+
 			<Campo>
 				<Label htmlFor='marca'>Marca</Label>
 				<Select name='marca' value={marca} id='marca' onChange={obtenerDatos}>
