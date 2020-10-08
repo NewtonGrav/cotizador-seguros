@@ -44,6 +44,9 @@ const Formulario = () => {
 		anio: '',
 		plan: '',
 	});
+	const [errorFormulario, setErrorFormulario] = useState(false);
+
+	const { marca, anio, plan } = datos;
 
 	const obtenerDatos = (e) => {
 		setDatos({
@@ -52,10 +55,19 @@ const Formulario = () => {
 		});
 	};
 
-	const { marca, anio, plan } = datos;
+	const cotizarSeguro = (e) => {
+		e.preventDefault();
+
+		if (marca.trim() === '' || anio.trim() === '' || plan.trim() === '') {
+			setErrorFormulario(true);
+			return;
+		}
+
+		setErrorFormulario(false);
+	};
 
 	return (
-		<form>
+		<form onSubmit={cotizarSeguro}>
 			<Campo>
 				<Label htmlFor='marca'>Marca</Label>
 				<Select name='marca' value={marca} id='marca' onChange={obtenerDatos}>
@@ -109,7 +121,7 @@ const Formulario = () => {
 				</label>
 			</Campo>
 
-			<Button type='button'>Cotizar</Button>
+			<Button type='submit'>Cotizar</Button>
 		</form>
 	);
 };
