@@ -14,6 +14,11 @@ const DatoSpan = styled.span`
   font-weight: bold;
 `;
 
+const Titulo = styled.p`
+	font-weight: bold;
+	text-transform: uppercase;
+`;
+
 function Resumen({ datos }) {
 	const { marca, anio, plan } = datos;
 
@@ -21,16 +26,16 @@ function Resumen({ datos }) {
 
 	return (
 		<ContenedorResumen>
-			<h2>Resumen</h2>
+			<Titulo>resumen</Titulo>
 			<ul>
 				<li>
-					<DatoSpan>Marca:</DatoSpan> {palabraCapitalize(marca)}
+					<DatoSpan>Marca:  </DatoSpan> {palabraCapitalize(marca)}
 				</li>
 				<li>
-					<DatoSpan>Año del auto:</DatoSpan> {palabraCapitalize(anio)}
+					<DatoSpan>Año del auto:  </DatoSpan> {palabraCapitalize(anio)}
 				</li>
 				<li>
-					<DatoSpan>Plan:</DatoSpan> {palabraCapitalize(plan)}
+					<DatoSpan>Plan:  </DatoSpan> {palabraCapitalize(plan)}
 				</li>
 			</ul>
 		</ContenedorResumen>
