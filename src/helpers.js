@@ -27,3 +27,8 @@ export function porcentajeAumentoDeMarca(marca) {
 export function porcentajeAumentoPorPlan(plan) {
 	return plan === 'basico' ? 1.2 : 1.5;
 }
+
+// Texto
+export function palabraCapitalize(texto) {
+	return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
