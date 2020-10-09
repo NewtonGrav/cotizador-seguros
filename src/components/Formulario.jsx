@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { diferenciaDeAnios, porcentajeAumentoDeMarca, porcentajeAumentoPorPlan } from './../helpers';
+import {
+	diferenciaDeAnios,
+	porcentajeAumentoDeMarca,
+	porcentajeAumentoPorPlan,
+} from './../helpers';
 
 const Campo = styled.div`
 	display: flex;
@@ -49,7 +53,7 @@ const Error = styled.div`
 	font-size: 1.25rem;
 `;
 
-const Formulario = () => {
+const Formulario = ({ setResumen }) => {
 	const [datos, setDatos] = useState({
 		marca: '',
 		anio: '',
@@ -86,6 +90,8 @@ const Formulario = () => {
 
 		total *= porcentajeAumentoPorPlan(plan);
 		total = parseFloat(total).toFixed(2);
+
+		setResumen({ cotizacion: total, datos });
 	};
 
 	return (
