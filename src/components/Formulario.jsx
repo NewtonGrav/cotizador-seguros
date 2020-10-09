@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { diferenciaDeAnios, porcentajeAumentoDeMarca } from './../helpers';
+import { diferenciaDeAnios, porcentajeAumentoDeMarca, porcentajeAumentoPorPlan } from './../helpers';
 
 const Campo = styled.div`
 	display: flex;
@@ -83,11 +83,9 @@ const Formulario = () => {
 		total -= (PORCENTAJE_POR_ANIO / 100) * total * diferenciaDeAnios(anio);
 
 		total *= porcentajeAumentoDeMarca(marca);
-		console.log(total);
 
-		// TODO Plan (Basico - 	20% | COmpleto - 50%)
-
-		// TODO TOTAL (helper)
+		total *= porcentajeAumentoPorPlan(plan);
+		total = parseFloat(total).toFixed(2);
 	};
 
 	return (

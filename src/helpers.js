@@ -23,3 +23,7 @@ export function porcentajeAumentoDeMarca(marca) {
 
 	return incremento;
 }
+
+export function porcentajeAumentoPorPlan(plan) {
+	return plan === 'basico' ? 1.2 : 1.5;
+}
