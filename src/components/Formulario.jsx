@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { diferenciaDeAnios } from "./../helpers";
+import { diferenciaDeAnios, porcentajeAumentoDeMarca } from './../helpers';
 
 const Campo = styled.div`
 	display: flex;
@@ -70,7 +70,7 @@ const Formulario = () => {
 		e.preventDefault();
 
 		const MONTO_BASE = 2000;
-		const PORCENTAJE_POR_ANIO = 3
+		const PORCENTAJE_POR_ANIO = 3;
 
 		if (marca.trim() === '' || anio.trim() === '' || plan.trim() === '') {
 			setErrorFormulario(true);
@@ -80,9 +80,10 @@ const Formulario = () => {
 
 		let total = MONTO_BASE;
 
-		total -= PORCENTAJE_POR_ANIO / 100 * total * diferenciaDeAnios(anio);
-		
-		// TODO Marca: aumenta la cotizacion (Amer - 15% |Asi - 5% | Eur - 30%)
+		total -= (PORCENTAJE_POR_ANIO / 100) * total * diferenciaDeAnios(anio);
+
+		total *= porcentajeAumentoDeMarca(marca);
+		console.log(total);
 
 		// TODO Plan (Basico - 	20% | COmpleto - 50%)
 
