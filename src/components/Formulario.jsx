@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import { diferenciaDeAnios } from "./../helpers";
 
 const Campo = styled.div`
 	display: flex;
@@ -76,6 +77,8 @@ const Formulario = () => {
 		setErrorFormulario(false);
 
 		// TODO Obtener diferencia de años
+		let diferencia = diferenciaDeAnios(anio);
+		
 		// TODO Por cada año restar el 3%
 
 		// TODO Marca: aumenta la cotizacion (Amer - 15% |Asi - 5% | Eur - 30%)
