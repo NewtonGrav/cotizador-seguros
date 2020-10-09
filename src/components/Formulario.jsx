@@ -33,13 +33,13 @@ const Button = styled.button`
 	font-weight: bold;
 	text-transform: uppercase;
 	border: none;
-	background-color: #22b5c9;
+	background-color: #00838f;
 	color: white;
 	transition: background-color 0.3s ease;
 
 	:hover {
 		cursor: pointer;
-		background-color: #1fa5b7;
+		background-color: #22b5c9;
 	}
 `;
 
