@@ -69,18 +69,19 @@ const Formulario = () => {
 	const cotizarSeguro = (e) => {
 		e.preventDefault();
 
+		const MONTO_BASE = 2000;
+		const PORCENTAJE_POR_ANIO = 3
+
 		if (marca.trim() === '' || anio.trim() === '' || plan.trim() === '') {
 			setErrorFormulario(true);
 			return;
 		}
-
 		setErrorFormulario(false);
 
-		// TODO Obtener diferencia de años
-		let diferencia = diferenciaDeAnios(anio);
-		
-		// TODO Por cada año restar el 3%
+		let total = MONTO_BASE;
 
+		total -= PORCENTAJE_POR_ANIO / 100 * total * diferenciaDeAnios(anio);
+		
 		// TODO Marca: aumenta la cotizacion (Amer - 15% |Asi - 5% | Eur - 30%)
 
 		// TODO Plan (Basico - 	20% | COmpleto - 50%)
