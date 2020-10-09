@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Mensaje = styled.p`
 	margin-top: 2rem;
@@ -9,7 +10,9 @@ const Mensaje = styled.p`
 `;
 
 const ResultadoCotizacion = styled.div`
-	padding: 1.5rem;
+	padding: 0.5rem;
+	border: 1px solid #26c6da;
+	position: relative;
 	margin-top: 1rem;
 	text-align: center;
 	background-color: #22b5c9;
@@ -28,11 +31,15 @@ const Resultado = ({ cotizacion }) => {
 		<Mensaje>Elige Marca, Año y un Plan</Mensaje>
 	) : (
 		<ResultadoCotizacion>
-			<CotizacionP>
-				El total es
-				<br />
-				<br />$ {cotizacion}
-			</CotizacionP>
+			<TransitionGroup component='p' className='resultado'>
+				<CSSTransition
+					classNames='resultado'
+					key={cotizacion}
+					timeout={{ enter: 500, exit: 500 }}
+				>
+					<CotizacionP>El total es $ {cotizacion}</CotizacionP>
+				</CSSTransition>
+			</TransitionGroup>
 		</ResultadoCotizacion>
 	);
 };
