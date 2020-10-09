@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import styled from '@emotion/styled';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Resumen from './components/Resumen';
 import Resultado from './components/Resultado';
-import styled from '@emotion/styled';
+import Spinner from './components/Spinner';
 
 const Contenedor = styled.div`
 	max-width: 640px;
@@ -20,6 +21,7 @@ function App() {
 		cotizacion: 0,
 		datos: { marca: '', anio: '', plan: '' },
 	});
+	const [cargando, setCargando] = useState(false);
 
 	const { cotizacion, datos } = resumen;
 
@@ -28,9 +30,12 @@ function App() {
 			<Header titulo='Cotizador de seguros' />
 
 			<ContenedorFormulario>
-				<Formulario setResumen={setResumen} />
+				<Formulario setResumen={setResumen} setCargando={setCargando} />
 
 				<Resumen datos={datos} />
+
+				{cargando ? <Spinner /> : null}
+
 				<Resultado cotizacion={cotizacion} />
 			</ContenedorFormulario>
 		</Contenedor>

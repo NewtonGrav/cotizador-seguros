@@ -53,7 +53,7 @@ const Error = styled.div`
 	font-size: 1.25rem;
 `;
 
-const Formulario = ({ setResumen }) => {
+const Formulario = ({ setResumen, setCargando }) => {
 	const [datos, setDatos] = useState({
 		marca: '',
 		anio: '',
@@ -91,7 +91,11 @@ const Formulario = ({ setResumen }) => {
 		total *= porcentajeAumentoPorPlan(plan);
 		total = parseFloat(total).toFixed(2);
 
-		setResumen({ cotizacion: total, datos });
+		setCargando(true);
+		setTimeout(() => {
+			setCargando(false);
+			setResumen({ cotizacion: total, datos });
+		}, 3000);
 	};
 
 	return (
