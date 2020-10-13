@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { palabraCapitalize } from './../helpers';
 
@@ -11,7 +12,7 @@ const ContenedorResumen = styled.div`
 `;
 
 const DatoSpan = styled.span`
-  font-weight: bold;
+	font-weight: bold;
 `;
 
 const Titulo = styled.p`
@@ -29,17 +30,21 @@ function Resumen({ datos }) {
 			<Titulo>resumen</Titulo>
 			<ul>
 				<li>
-					<DatoSpan>Marca:  </DatoSpan> {palabraCapitalize(marca)}
+					<DatoSpan>Marca: </DatoSpan> {palabraCapitalize(marca)}
 				</li>
 				<li>
-					<DatoSpan>Año del auto:  </DatoSpan> {palabraCapitalize(anio)}
+					<DatoSpan>Año del auto: </DatoSpan> {palabraCapitalize(anio)}
 				</li>
 				<li>
-					<DatoSpan>Plan:  </DatoSpan> {palabraCapitalize(plan)}
+					<DatoSpan>Plan: </DatoSpan> {palabraCapitalize(plan)}
 				</li>
 			</ul>
 		</ContenedorResumen>
 	);
 }
+
+Resumen.propTypes = {
+	datos: PropTypes.object.isRequired,
+};
 
 export default Resumen;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {
 	diferenciaDeAnios,
@@ -158,6 +159,11 @@ const Formulario = ({ setResumen, setCargando }) => {
 			<Button type='submit'>Cotizar</Button>
 		</form>
 	);
+};
+
+Formulario.propTypes = {
+	setResumen: PropTypes.func.isRequired,
+	setCargando: PropTypes.func.isRequired,
 };
 
 export default Formulario;
